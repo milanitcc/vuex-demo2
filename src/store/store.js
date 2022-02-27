@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 
 export const store = createStore({
+    strict: true,
     state: {
         products: [
             {name: "Banana Skin", price: 20},
@@ -19,6 +20,22 @@ export const store = createStore({
             });
 
             return saleProducts;
+        }
+    },
+
+    mutations: {
+        reducePrice: (state, payload) => {
+            state.products.forEach(product => {
+                product.price -= payload
+            });
+        }
+    },
+
+    actions: {
+        reducePriceActions: (context, payload) => {
+            setTimeout(function(){
+                context.commit("reducePrice", payload);
+            }, 2000);
         }
     }
 });
