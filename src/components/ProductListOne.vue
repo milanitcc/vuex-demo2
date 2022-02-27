@@ -3,7 +3,7 @@
       <h2>Product List One</h2>
       <ul>
           <li
-            v-for="(product, index) in products"
+            v-for="(product, index) in saleProducts"
             :key="index"
             >
             <span class="name">{{ product.name }}</span>
@@ -14,12 +14,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
     computed: {
         products() {
             return this.$store.state.products
-        }
+        },
+        ...mapGetters(["saleProducts"])
     }
 }
 </script>

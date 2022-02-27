@@ -15,11 +15,6 @@ export default {
     "product-list-two": ProductListTwo,
   },
   name: 'App',
-  data() {
-    return {
-      
-    }
-  }
 }
 </script>
 
